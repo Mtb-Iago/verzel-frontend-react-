@@ -34,7 +34,6 @@ const Admin = () => {
         }).catch((e) => {
             console.log(e);
         })
-        console.log('effect');
 
     }, [modalShow, msgDelete])
 

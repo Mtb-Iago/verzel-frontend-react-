@@ -97,7 +97,7 @@ const Cards = (props: { isFilterVisible: boolean }) => {
                 {!vehicles?.[0] ? 'Veículos não cadastrados' : ''}
                 {vehicles?.map((vehicle, index) => {
                     return (
-                        <C.divCardsCars className='col-sm-6 col-car ng-star-inserted col-lg-4 col-xl-3'>
+                        <C.divCardsCars key={index} className='col-sm-6 col-car ng-star-inserted col-lg-4 col-xl-3'>
                             <button className='btnCheckCar'>
                                 <div className='imgCar'>
                                     <div className='badge'>

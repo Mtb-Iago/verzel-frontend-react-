@@ -5,6 +5,7 @@ import { isAuthenticated, TOKEN_KEY } from '../../../services/auth';
 import * as H from './Style.styles';
 
 const Header = (props: any) => {
+    
     const pathname = useLocation().pathname
     const [isAuthenticate, setIsAuthenticate] = useState(isAuthenticated)
 
@@ -14,10 +15,10 @@ const Header = (props: any) => {
     };
 
     useEffect(() => {
-        if (!localStorage.getItem(TOKEN_KEY)) {
-            return setIsAuthenticate(false)
+        if (localStorage.getItem(TOKEN_KEY) && localStorage.getItem(TOKEN_KEY) !== null) {
+            setIsAuthenticate(true)
         }
-    }, [])
+    }, [isAuthenticate])
 
     return (
         <H.HeaderHome>
@@ -35,8 +36,8 @@ const Header = (props: any) => {
                     <H.HeaderLinks $is_active_route={false} to="#">
                         App Kavak
                     </H.HeaderLinks>
-                    <H.HeaderLinks $is_active_route={false} to="#">
-                        Sobre nós
+                    <H.HeaderLinks $is_active_route={false} to="/admin">
+                        Admin
                     </H.HeaderLinks>
 
                     {isAuthenticate ?
